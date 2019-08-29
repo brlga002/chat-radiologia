@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/',(req,res)=>{
-  res.send('Teste Hospedagem Heroku');
+  res.send(`Teste Hospedagem Heroku ${port}`);
 })
 
 app.listen(port);
