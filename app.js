@@ -6,6 +6,4 @@ app.get('/',(req,res)=>{
   res.send('Teste Hospedagem Heroku');
 })
 
-app.listen(port, ()=>{
-  console.log(`Servidor rodando na porta: ${port}`);
-})
+app.listen(port);
