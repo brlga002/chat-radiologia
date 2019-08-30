@@ -1,25 +1,41 @@
-var port =  $("#port_heroku");
-var socket = io.connect(port);
-var containerApp =  "";
-var button_show_chat = "";
-var username = "";
-var message = "";
-var areaMessages = "";
+let port,
+    containerApp,
+    fist_stepp,
+    button_show_fist_stepp,
+    button_show_chat,
+    username, 
+    message, 
+    areaMessages;
 
-$(function(){   
+$(function(){
+    port =  $("#port_heroku");      
     containerApp =  $("#container-app");
-    button_show_chat = $(".button-show-chat");
+    fist_stepp =  $("#fist_stepp");
+    button_show_chat = $("#button-show-chat");
+    button_show_fist_stepp = $("#button_show_fist_step");
     username = $("#email");
     message = $("#message");    
     areaMessages = $(".areaMessages");
-        
+    socket = io.connect(port);
 });
 
-function activeChat() {    
+function activeChat() {
     socket.emit('welcome')
     containerApp.toggleClass("notActivity");    
     button_show_chat.toggleClass("notActivity");
+    fist_stepp.toggleClass("notActivity");
     console.log(port.val());
+    defineActionsListen();
+}
+
+function activeContainerEmail() {
+    button_show_fist_stepp.toggleClass("notActivity");  
+    fist_stepp.toggleClass("notActivity");  
+}
+
+function fullScreen() {
+    containerApp.toggleClass("full_screen");  
+     
 }
 
 function sendMessage() {    
@@ -50,11 +66,13 @@ function render_mensage_receive(data) {
 
 function scrollAltomatic() {
     areaMessages.animate({ scrollTop: areaMessages[0].scrollHeight }, 0);  
-  }
+}
 
+function defineActionsListen() {
+    //Listen on new_message
+    socket.on("new_message", (data) => {
+        console.log("new_message receive:" + data.message)
+        render_mensage_receive(data)
+    })
+}
 
-//Listen on new_message
-socket.on("new_message", (data) => {
-    console.log("new_message receive:" + data.message)
-    render_mensage_receive(data)
-})

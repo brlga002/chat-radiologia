@@ -6,7 +6,7 @@ var io = require('socket.io')(server);
 
 const handlebars = require('express-handlebars');
 const path = require('path');
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
@@ -22,14 +22,14 @@ io.on('connection', (socket) => {
   console.log('New user connected ' + socket.id);
   socket.on('welcome', () => {    
     (async () => {
-      await delay(1000);
+      await delay(500);
       io.to(`${socket.id}`).emit('new_message', { message: "Olá", username: "Procurando..." }); 
-      await delay(1000);     
+      await delay(500);     
       io.to(`${socket.id}`).emit('new_message', { message: "Seja bem vindo ao atendimento do CRTR 19ª Região", username: "Procurando..." });
-      await delay(1000);
+      await delay(500);
       io.to(`${socket.id}`).emit('new_message', { message: "Você pode me informar seu nome ou CPF?", username: "Procurando..." });     
-      await delay(5000);
-      io.to(`${socket.id}`).emit('new_message', { message: "So um minuto, Estou procurando um atendente para você", username: "Procurando..." });     
+      await delay(500);
+      io.to(`${socket.id}`).emit('new_message', { message: '<a href="https://www.crtr19.gov.br/inscricao-de-registro-p-f/" target="_blank" rel="noopener noreferrer">Inscrição de Registro</a>', username: "Procurando..." });     
     })();
   })
   
