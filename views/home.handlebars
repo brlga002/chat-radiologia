@@ -1,0 +1,11 @@
+	<h1>Rodando na porta {{port}}</h1>
+	<div class="container-app notActivity" id="container-app">
+		<label class="label-email" for="email">E-mail:</label>	
+		<input class="input-email" type="text" id="email" name="email" placeholder="Digite seu e-mail" required="true" value="">
+		<div class="areaMessages">
+		</div>
+		<input class="input-message" type="text" id="message" name="message" placeholder="Digite uma mensagem">
+		<button class="button-send" onclick="sendMessage()">Enviar</button>
+	</div>
+	<button class="button-show-chat" onclick="activeChat()">Chat CRTR 19ª</button>
+	<input type="hidden" id="port_heroku" value="{{port}}">
