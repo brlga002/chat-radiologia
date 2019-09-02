@@ -6,7 +6,7 @@ require('./src/io')(server);
 
 const handlebars = require('express-handlebars');
 const path = require('path');
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
@@ -17,7 +17,6 @@ app.get('/', function(req, res) {
       port: port
   });
 });
-
 
 
 server.listen(port);
