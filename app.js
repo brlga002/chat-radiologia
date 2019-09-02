@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 
-require('./src/io')(server);
+require('./src/sokect/public')(server);
 
 const handlebars = require('express-handlebars');
 const path = require('path');
