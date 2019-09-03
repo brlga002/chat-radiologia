@@ -4,6 +4,7 @@ let port,
     button_show_fist_stepp,
     button_show_chat,
     username, 
+    email, 
     message, 
     areaMessages;
 
@@ -13,14 +14,15 @@ $(function(){
     fist_stepp =  $("#fist_stepp");
     button_show_chat = $("#button-show-chat");
     button_show_fist_stepp = $("#button_show_fist_step");
-    username = $("#email");
+    username = $("#username");
+    email = $("#email");
     message = $("#message");    
     areaMessages = $(".areaMessages");
     socket = io.connect(port);
 });
 
 function activeChat() {
-    socket.emit('welcome')
+    socket.emit('welcome',{username : username.val(), email: email.val()})
     containerApp.toggleClass("notActivity");    
     button_show_chat.toggleClass("notActivity");
     fist_stepp.toggleClass("notActivity");
@@ -46,10 +48,6 @@ function sendMessage() {
     }
 }
 
-function send_username() {
-    console.log("send_username " + username.val());
-    socket.emit('change_username', {username : username.val()})
-}
 
 function render_mensage_send() {
     console.log("render_mensage " + message.val());
