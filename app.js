@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
-const api = require('./src/service/api');
 
-require('./src/sokect/public')(server);
+
+require('./src/socketioRules')(server);
 
 const handlebars = require('express-handlebars');
 const path = require('path');
@@ -14,12 +14,6 @@ app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/', async(req, res) => {
-
- 
-
-
-
-
     res.render('home', {
         port: port
     });
@@ -31,4 +25,4 @@ app.get('/', async(req, res) => {
 
 
 server.listen(port);
-console.log('Server Socket io na porta: ' + port);
+console.log('Server Socket io in port: ' + port);
