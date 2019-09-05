@@ -7,7 +7,7 @@ require('./src/socketioRules')(server);
 
 const handlebars = require('express-handlebars');
 const path = require('path');
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
