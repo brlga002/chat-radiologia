@@ -18,7 +18,7 @@ $(function(){
     email = $("#email");
     message = $("#message");    
     areaMessages = $(".areaMessages");
-    socket = io.connect(port);
+    socket = io.connect('http://localhost:5000');
 });
 
 function activeChat() {

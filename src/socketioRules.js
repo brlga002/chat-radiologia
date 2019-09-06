@@ -10,7 +10,6 @@ module.exports = server => {
     socket.email = 'nao informado';
     
     socket.on('welcome', async (data) => {
-      console.log(data);
       try {          
         const response = await api.post('/conversa',{
           "socketid":socket.id, 
@@ -33,6 +32,36 @@ module.exports = server => {
         enviarMensagem(`houve um ao iniciar um conversa erro: ${err.response.data.error}`);        
       }        
     })
+
+    socket.on('welcome_ADM', async (data) => {
+      console.log('adm online')
+      io.to(`${socket.id}`).emit('oi',  'oi adm online' ); 
+      socket.username = data.username
+      socket.email = data.email
+     })
+
+        
+     socket.on('new_message_response', async (data) => {          
+      try {
+        const response = await api.post('/menssage',{
+          "socketid":socket.id,
+          "name": socket.username,
+          "text": data.message,
+          "conversa": data.conversaId,
+          "type": "response"
+        })        
+        io.to(`${data.socketid}`).emit('new_message', {message:data.message})
+
+      } catch (err) {
+        console.log(`erro ao gravar nova de resposta mgs: ${err.response.data.error}`)        
+      }      
+    });   
+
+
+       
+  
+
+    
     
     socket.on('new_message', async (data) => {          
       try {
@@ -40,7 +69,7 @@ module.exports = server => {
           "socketid":socket.id,
           "name": socket.username,
           "text": data.message,
-          "conversa": socket.conversaId
+          "conversa": socket.conversaId 
         })
       } catch (err) {
         console.log(`erro ao gravar nova mgs: ${err.response.data.error}`)        
