@@ -1,21 +1,23 @@
 
 
-let areaMessages, inputUsuario ;
+let areaMessages, inputUsuario;
 
 $(function () {
     areaMessages = $("#ul-msg");
     inputUsuario = $("#inputUsuario");
 
-    axios.get('https://chat-crtr19.herokuapp.com').then((response) => {
-        port = response.data.port;       
+    //var urlServe = 'http://localhost:5000'; 
+    var urlServe = 'https://chat-crtr19.herokuapp.com';
+
+    axios.get(urlServe).then((response) => {
+        port = response.data.port;
     })
 
-    socket = io.connect(`https://chat-crtr19.herokuapp.com:52773`);
-    //socket = io.connect(`http://localhost:5000`);
+    socket = io.connect(urlServe);
     defineActionsListen()
     socket.emit('welcome', { username: 'gabriel_lima', email: 'gabriel@gmail.com' })
 
-    
+
 });
 
 $("#inputUsuario").on("keypress", function (e) {
@@ -33,11 +35,10 @@ function scrollAltomatic() {
 }
 
 function teste() {
-    socket.emit('welcome', { username: 'gabriel', email: 'gabriel@gmail.com' })
     //render_mensage_send(inputUsuario.val());
     //render_mensage_receive(inputUsuario.val());
     //inputUsuario.val('');
-    defineActionsListen();
+    render_choice()
 }
 
 function render_mensage_send(message) {
@@ -62,9 +63,36 @@ function render_mensage_receive(data) {
     scrollAltomatic();
 }
 
+function render_choice(data) {
+    var data = {
+        "choices":[
+            { nome:"Parcelamento", choice:"parcelamento"},
+            { nome:"Inscricao", choice:"inscricao"},
+        ]
+    }
+
+    var celcius = data.choices.reduce( function(prevVal, elem) {
+        $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="sendChoice('${elem.choice}')">${elem.nome}</button>`;
+        return prevVal + $elemento;
+    },initialValue =''); 
+    
+    areaMessages.append(`
+        <li class="msg-item">
+            <div class="container-choice card-msg">
+                ${celcius}
+                <div class="clearfix"></div>
+            </div>
+        </li>`);
+    scrollAltomatic();
+}
+
 function defineActionsListen() {
     socket.on("new_message", (data) => {
         render_mensage_receive(data)
+    })
+
+    socket.on("render_choice", (data) => {
+        render_choice(data)
     })
 }
 

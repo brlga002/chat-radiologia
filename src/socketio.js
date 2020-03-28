@@ -14,7 +14,6 @@ module.exports = server => {
         socket.username = data.username
         socket.email = data.email       
         bot.messageAutomatica(io,socket);
-        //console.log(socket)        
       } catch (err) {
         console.log(err);
         enviarMensagem(`houve um ao iniciar um conversa erro: ${err}`);        
