@@ -1,6 +1,7 @@
 const delay = require('delay')
 
 module.exports.messageAutomatica = async (io,socket) => {
+    console.log('messageAutomatica para '+ socket.id)
     async function envio (message,delayTime=200) {        
         io.to(`${socket.id}`).emit('new_message', { 
             message: message

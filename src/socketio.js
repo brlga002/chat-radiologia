@@ -12,8 +12,9 @@ module.exports = server => {
       try {
         console.log(`on[welcome] - ${socket.id}`)  
         socket.username = data.username
-        socket.email = data.email2        
-        bot.messageAutomatica(io,socket);        
+        socket.email = data.email       
+        bot.messageAutomatica(io,socket);
+        //console.log(socket)        
       } catch (err) {
         console.log(err);
         enviarMensagem(`houve um ao iniciar um conversa erro: ${err}`);        

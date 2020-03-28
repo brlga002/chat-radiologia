@@ -9,8 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <link rel="stylesheet" href="style.css">       
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-primary navbar-dark justify-content-center">
@@ -36,7 +35,7 @@
                     <ul id="ul-msg">
                         <li class="msg-item">
                             <div class="d-inline-flex card-msg">
-                                <img src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                <img src="img/robo.png" class="avatar
                                     rounded-circle" alt="avatar robot">
                                 <p>Oi, tudo bem!</p>
                             </div>
@@ -44,7 +43,7 @@
 
                         <li class="msg-item">
                             <div class="d-inline-flex card-msg">
-                                <img src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                <img src="img/robo.png" class="avatar
                                     rounded-circle" alt="avatar robot">
                                 <p>Oi, tudo bem!</p>
                             </div>
@@ -53,7 +52,7 @@
                         <li class="msg-item">
                             <div class="d-inline-flex card-msg">
                                 <img
-                                    src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                    src="img/robo.png" class="avatar
                                     rounded-circle" alt="avatar robot">
                                 <p>Fui treinado para responder sobre isso:</p>
                             </div>
@@ -92,7 +91,8 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="chats.js"></script>
     </body>
 </html>
