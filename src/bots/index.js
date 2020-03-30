@@ -4,12 +4,12 @@ const taxas = require('./taxas')
 
 let io, socketID;
 
-async function sendChoice(arrayData,delayTime=1000) {   
+async function sendChoice(arrayData,delayTime=0) {   
     io.to(`${socketID.id}`).emit('render_choice', {data: {"choices": arrayData}});
     await delay(delayTime);       
 }
 
-async function envio (message,delayTime=850) {        
+async function envio (message,delayTime=0) {        
     io.to(`${socketID.id}`).emit('new_message', { 
         message: message
     });
@@ -68,7 +68,7 @@ module.exports.baixa = async () => {
     await envio(`Devolução da Cédula de Identidade Profissional.`);
     await envio(`Cópia do comprovante de residência da jurisdição de destino.`);
     await envio(`Cópia do Comprovante de pagamento da taxa de transferência.`);
-    await taxas.taxaTransferencia(io,socket);
+    await taxas.taxaTransferencia(io,socketID);
     await sendChoice(menu.fimChat());
  }
 
