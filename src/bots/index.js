@@ -110,8 +110,8 @@ module.exports.taxas_inscricao_tecnologo = async () => {
 }
 
 module.exports.maps = async () => {
+    await envio('<a href="https://goo.gl/maps/ALjUPKB4zfPLGneP9" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>',1000);
     await envio('Segue um mapa para te ajudar, <b>clique para abrir no Google Maps</b>:',100);
-    await envio('<a href="https://goo.gl/maps/ALjUPKB4zfPLGneP9" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>');
     await sendChoice(menu.fimChat());
 }
 
