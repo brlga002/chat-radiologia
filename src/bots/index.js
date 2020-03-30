@@ -4,12 +4,12 @@ const taxas = require('./taxas')
 
 let io, socketID;
 
-async function sendChoice(arrayData,delayTime=500) {   
+async function sendChoice(arrayData,delayTime=1000) {   
     io.to(`${socketID.id}`).emit('render_choice', {data: {"choices": arrayData}});
     await delay(delayTime);       
 }
 
-async function envio (message,delayTime=1000) {        
+async function envio (message,delayTime=850) {        
     io.to(`${socketID.id}`).emit('new_message', { 
         message: message
     });
