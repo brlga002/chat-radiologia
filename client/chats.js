@@ -4,8 +4,8 @@ $(function () {
     areaMessages = $("#ul-msg");
     inputUsuario = $("#inputUsuario");
 
-    var urlServe = 'http://localhost:5000'; 
-    //var urlServe = 'https://chat-crtr19.herokuapp.com';
+    //var urlServe = 'http://localhost:5000'; 
+    var urlServe = 'https://chat-crtr19.herokuapp.com';
 
     axios.get(urlServe + '/port').then((response) => {
         port = response.data.port;
