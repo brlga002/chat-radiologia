@@ -1,0 +1,19 @@
+module.exports.taxas_inscricao_tecnologo = async (io,socket) => {
+    await envio(`Para o ano de 2020 os valores das taxas são:`);  
+    await envio(`Taxa de Inscrição R$ 94,55 | Emissão de Carteira R$ 37,21`);  
+    await envio(`A Anuidade Proporcional é calculada de acordo com o mês em que se da entrada. Anuidade Integral do Tecnólogo é R$ 427,38 Anuidade Integral do Técnico é R$ 427,38 `);
+    await envio(`Fica assim os valores em cada mês da Anuidade Proporcional para o Tecnólogo:`);  
+    await envio(`Janeiro: R$ 427,38 | Fevereiro: R$ 391,77 | Março: R$ 356,15 | Abril: R$ 320,54 | Maio: R$ 284,92 | Junho: R$ 249,31 | Julho: R$ 213,69 | Agosto:R$ 178,08 | Setembro:R$ 142,46 | Outubro:R$ 106,85 | Novembro:R$ 71,23 | Desemmbro:R$ 35,62`);
+    await envio(`Fica assim os valores em cada mês da Anuidade Proporcional para o Técnico:`); 
+    await envio(`Janeiro: R$ 342,15 | Fevereiro: R$ 313,64 | Março: R$ 285,13 | Abril: R$ 256,61 | Maio: R$ 228,10 | Junho: R$ 199,59 | Julho: R$ 171,08 | Agosto:R$ 142,56 | Setembro:R$ 142,46 | Outubro:R$ 114,05 | Novembro:R$ 85,54 | Desemmbro:R$ 28,51`); 
+}
+
+module.exports.taxas_inscricao_tecnico = async (io,socket) => {
+    await envio(`Para o ano de 2020 os valores das taxas são:`);  
+    await envio(`Taxa de Inscrição R$ 94,55 | Emissão de Carteira R$ 37,21`);  
+    await envio(`A Anuidade Proporcional é calculada de acordo com o mês em que se da entrada. Anuidade Integral do Tecnólogo é R$ 427,38 Anuidade Integral do Técnico é R$ 427,38 `);
+    await envio(`Fica assim os valores em cada mês da Anuidade Proporcional para o Tecnólogo:`);  
+    await envio(`Janeiro: R$ 427,38 | Fevereiro: R$ 391,77 | Março: R$ 356,15 | Abril: R$ 320,54 | Maio: R$ 284,92 | Junho: R$ 249,31 | Julho: R$ 213,69 | Agosto:R$ 178,08 | Setembro:R$ 142,46 | Outubro:R$ 106,85 | Novembro:R$ 71,23 | Desemmbro:R$ 35,62`);
+    await envio(`Fica assim os valores em cada mês da Anuidade Proporcional para o Técnico:`); 
+    await envio(`Janeiro: R$ 342,15 | Fevereiro: R$ 313,64 | Março: R$ 285,13 | Abril: R$ 256,61 | Maio: R$ 228,10 | Junho: R$ 199,59 | Julho: R$ 171,08 | Agosto:R$ 142,56 | Setembro:R$ 142,46 | Outubro:R$ 114,05 | Novembro:R$ 85,54 | Desemmbro:R$ 28,51`); 
+}

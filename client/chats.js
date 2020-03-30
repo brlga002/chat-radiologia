@@ -6,8 +6,8 @@ $(function () {
     areaMessages = $("#ul-msg");
     inputUsuario = $("#inputUsuario");
 
-    //var urlServe = 'http://localhost:5000'; 
-    var urlServe = 'https://chat-crtr19.herokuapp.com';
+    var urlServe = 'http://localhost:5000'; 
+    //var urlServe = 'https://chat-crtr19.herokuapp.com';
 
     axios.get(urlServe).then((response) => {
         port = response.data.port;
@@ -63,15 +63,8 @@ function render_mensage_receive(data) {
     scrollAltomatic();
 }
 
-function render_choice(data) {
-    var data = {
-        "choices":[
-            { nome:"Parcelamento", choice:"parcelamento"},
-            { nome:"Inscricao", choice:"inscricao"},
-        ]
-    }
-
-    var celcius = data.choices.reduce( function(prevVal, elem) {
+function render_choice(choices) {
+    var celcius = choices.data.choices.reduce( function(prevVal, elem) {
         $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="sendChoice('${elem.choice}')">${elem.nome}</button>`;
         return prevVal + $elemento;
     },initialValue =''); 
@@ -91,8 +84,10 @@ function defineActionsListen() {
         render_mensage_receive(data)
     })
 
-    socket.on("render_choice", (data) => {
-        render_choice(data)
+    socket.on("render_choice", (choices) => {
+        console.log('render_choice=>')
+        console.log(choices)
+        render_choice(choices)
     })
 }
 

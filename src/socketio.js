@@ -16,7 +16,7 @@ module.exports = server => {
         bot.messageAutomatica(io,socket);
       } catch (err) {
         console.log(err);
-        enviarMensagem(`houve um ao iniciar um conversa erro: ${err}`);        
+        enviarMensagem(`houve um erro: ${err}`);        
       }        
     })
       
