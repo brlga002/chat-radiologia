@@ -20,9 +20,9 @@ module.exports.taxaInscricaoProfisional = () => {
 module.exports.fimChat = (add='') => {
     if (add !== ''){
         return [
+            add, 
             { nome:"Isso é Tudo", choice:"fimChat"},
-            { nome:"Quero outras informações", choice:"menuInicial"},
-            add        
+            { nome:"Quero outras informações", choice:"menuInicial"},                   
         ];
     } 
 
