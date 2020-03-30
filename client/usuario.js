@@ -12,7 +12,7 @@ $(function () {
     })
 
     socket = io.connect(urlServe, {
-        query: { user_id: 'gabriel' }           
+        query: { user_id: 'usuario' }           
     });
     defineActionsListen()
     socket.emit('welcome', { username: 'gabriel_lima', email: 'gabriel@gmail.com' });

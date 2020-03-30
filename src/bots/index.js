@@ -2,31 +2,35 @@ const delay = require('delay');
 const menu = require('./menus');
 const taxas = require('./taxas')
 
-let io, socket;
+let io, socketID;
 
 async function sendChoice(arrayData,delayTime=5) {   
-    io.to(`${socket.id}`).emit('render_choice', {data: {"choices": arrayData}});
+    io.to(`${socketID.id}`).emit('render_choice', {data: {"choices": arrayData}});
     await delay(delayTime);       
 }
 
 async function envio (message,delayTime=1) {        
-    io.to(`${socket.id}`).emit('new_message', { 
+    io.to(`${socketID.id}`).emit('new_message', { 
         message: message
     });
     await delay(delayTime);  
 }
 
-module.exports.messageAutomatica = async (io_server,socket_server) => {
-    io = io_server;
-    socket = socket_server;
-    console.log('messageAutomatica para '+ socket.id)
+module.exports.setIds = async (io_server,socket_server) => {
+    io = await io_server;
+    socketID = await socket_server;     
+ }
 
-    await envio(`Ola, que bom que você veio!`);       
+module.exports.messageAutomatica = async () => {
+    console.log('messageAutomatica para:' + socketID.id)
+
+    await envio(`Ola, que bom que você veio!`, 10);       
     await envio('Seja bem vindo(a), me chamo <b>Radio</b> estou sendo treinado para fazer o atendimento do CRTR 19ª Região 24h por dia, todo dia aprendo algo novo mas ainda sou muito novo e vou melhorar com o tempo &#128522;');
     this.menuInicial();
  }
 
  module.exports.inscricao = async () => {
+    console.log('inscricao para:' + socketID.id)
     await envio(`Inscrição, Boa escolha`);
     await envio(`O processo de inscrição ocorre em 3 Etapas:`);
     await envio(`Etapa 1: O requerente reuni a documentação necessária e protocola a mesma no consellho juntamente com a taxa de inscrição`);
@@ -49,6 +53,22 @@ module.exports.baixa = async () => {
     await envio('Basta preencher esta ficha: <a href="https://www.crtr19.gov.br/wp-content/uploads/2019/01/02-REATIVAÇÃO.pdf" target="_blank" rel="noopener noreferrer">Solicitação de Reativação de Inscrição</a> juntamente com um comprovante de endereço.');
     await envio('Pagar a taxa de reativação e anuidade Proporcional.');
     await envio('Caso necessário podemos solicitar também Taxa para emissão de uma nova habilitação profissional e duas fotos.');
+    await sendChoice(menu.fimChat());
+ }
+
+ module.exports.transferencia = async () => {
+    await envio(`Bem, nós somos o CRTR 19ª Região Amazonas e Roraima, os profissionais inscritos conosco podem trabalhar na nossa jurisdição.`);
+    await envio(`Caso um profissional queira trabalhar em outros Etados ele pode:`);
+    await envio(`Caso "As atividades que se desenvolvam até 90 (noventa) dias por ano, em cada região serão consideras de natureza eventual, e por conseguinte, não sujeitarão o profissional à inscrição secundária. O profissional enquadrado na situação prevista no parágrafo anterior, deverá comunicar ao CRTR da jurisdição, se a permanência for mais de 30 (trinta) dias, devendo o conselho Regional, emitir uma Certidão de Autorização, com o prazo de validade enquanto durar o trabalho...
+        <a href="http://conter.gov.br/uploads/legislativo/n_122006.pdf" target="_blank" rel="noopener noreferrer">Resolução Conter N.° 12 de 15 de semtembro de 2006</a>"`);
+
+    await envio(`Solicitar Transferência de Regional ou Fazer uma Inscrição Secundária`);
+    await envio(`Essa e nossa ficha de <a href="https://www.crtr19.gov.br/wp-content/uploads/2020/01/FICHA-02-VERS%C3%83O-01-SOLICITA%C3%87%C3%83O-DE-TRANSFER%C3%8ANCIA.pdf" target="_blank" rel="noopener noreferrer">Solicitação de Transferência de Inscrição Profissional</a>`);
+    await envio(`A Documentação Necessária:`);
+    await envio(`Devolução da Cédula de Identidade Profissional.`);
+    await envio(`Cópia do comprovante de residência da jurisdição de destino.`);
+    await envio(`Cópia do Comprovante de pagamento da taxa de transferência.`);
+    await taxas.taxaTransferencia(io,socket);
     await sendChoice(menu.fimChat());
  }
 
@@ -77,21 +97,27 @@ module.exports.baixa = async () => {
     await envio(`Vou te explicar:`);       
     await envio('Nossa sede é na cidade de Manaus no Amazonas.');
     await envio('O endereço: Rua Michel Fokine, n.° 11, Quadra Q, Conjunto Shangrilar IV.');
-    await envio('CEP: 69.054-739  Bairro: Parque 10 de Novembro.');
-    await envio('Segue um mapa para te ajudar, <b>clique para abrir no Google Maps</b>:',100);
-    await envio('<a href="https://goo.gl/maps/ALjUPKB4zfPLGneP9" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>');
+    await envio('CEP: 69.054-739  Bairro: Parque 10 de Novembro.');    
     await envio('O ponto de referência: Na rua do <b>Supermercado Veneza</b> tem a <b>Casa da Carne Otávio</b>, que fica bem no início da nossa rua, desça até o fim dela, não tem erro.');
     await envio('Vou te mostrar uma foto:',100);
     await envio('<img src="img/casadacarne.png" class="img-thumbnail" alt="Casa de carne Otavio">');    
-    await sendChoice(menu.fimChat());
+    await sendChoice([...menu.fimChat(),{ nome:"Abrir Maps", choice:"maps"}]);
  }
 
 module.exports.taxas_inscricao_tecnologo = async () => {
-    taxas.inscricaoProfisional('tecnologo',io,socket)
+    await taxas.inscricaoProfisional('tecnologo',io,socketID);
+    await sendChoice(menu.fimChat());
+}
+
+module.exports.maps = async () => {
+    await envio('Segue um mapa para te ajudar, <b>clique para abrir no Google Maps</b>:',100);
+    await envio('<a href="https://goo.gl/maps/ALjUPKB4zfPLGneP9" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>');
+    await sendChoice(menu.fimChat());
 }
 
 module.exports.taxas_inscricao_tecnico = async () => {
-    taxas.inscricaoProfisional('tecnico',io,socket) 
+    await taxas.inscricaoProfisional('tecnico',io,socketID)
+    await sendChoice(menu.fimChat()); 
 }
 
 module.exports.menuInicial = async () => {

@@ -9,6 +9,7 @@ const anuidadeTecnologo = 427.38;
 const taxaInscricao = 94.55;
 const emissaoCarteira = 37.21;
 const mesesRestantes = 12 - now.getMonth();
+const taxaTransferencia = 48.28;
 let io,socket;
 
 async function envio (message,delayTime=1) {        
@@ -33,4 +34,10 @@ module.exports.inscricaoProfisional = async (tipo='tecnico',io_serve,socket_serv
     await envio(`Emissão de Carteira ${formaraMoeda(emissaoCarteira)}`);     
     await envio(`Anuidade Proporcional: ${formaraMoeda(anuidadeProporcional)}`);
     await envio(`Somando Tudo: ${formaraMoeda(soma)}`);     
+};
+
+module.exports.taxaTransferencia = async (io_serve,socket_server) => {
+    io = await io_serve;
+    socket = await socket_server;
+    await envio(`Taxa de transferência de ${formaraMoeda(taxaTransferencia)} <b>Ela é devida ao regional de Origem</b>.`);     
 };
