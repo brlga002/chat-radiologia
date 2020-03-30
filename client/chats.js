@@ -14,8 +14,6 @@ $(function () {
     socket = io.connect(urlServe);
     defineActionsListen()
     socket.emit('welcome', { username: 'gabriel_lima', email: 'gabriel@gmail.com' })
-
-
 });
 
 $("#inputUsuario").on("keypress", function (e) {
@@ -29,13 +27,13 @@ $("#inputUsuario").on("keypress", function (e) {
 
 
 function scrollAltomatic() {
-    areaMessages.animate({ scrollTop: areaMessages[0].scrollHeight }, 500);
+    areaMessages.animate({ scrollTop: areaMessages[0].scrollHeight }, 50);
 }
 
 function teste() {
-    //render_mensage_send(inputUsuario.val());
+    render_mensage_send(inputUsuario.val());
     //render_mensage_receive(inputUsuario.val());
-    //inputUsuario.val('');
+    inputUsuario.val('');
     render_choice()
 }
 
@@ -43,8 +41,10 @@ function render_mensage_send(message) {
     areaMessages.append(`
         <li class="msg-item">
             <div class="d-flex flex-row-reverse card-msg">
-                <img src="img/user.png" class="avatar rounded-circle" alt="avatar user">
-                <p class="mr-1">${message}</p>
+                <div class="d-flex flex-row-reverse card-msg-receive">                       
+                    <img src="img/user.png" class="avatar rounded-circle" alt="avatar user">
+                    <p class="mr-1">${message}</p>
+                </div> 
             </div>
         </li>`);
     scrollAltomatic();
@@ -61,9 +61,20 @@ function render_mensage_receive(data) {
     scrollAltomatic();
 }
 
+function render_choice_send(nome) {
+    areaMessages.append(`
+    <li class="msg-item">
+        <div class="container-choice d-flex flex-row-reverse card-msg">
+            <p class="container-choice-item card-send-choice">${nome}</p>
+            <div class="clearfix"></div>
+        </div>
+    </li>`);
+}
+
 function render_choice(choices) {
+    console.log(choices);
     var celcius = choices.data.choices.reduce( function(prevVal, elem) {
-        $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="sendChoice('${elem.choice}')">${elem.nome}</button>`;
+        $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="sendChoice('${elem.choice}','${elem.nome}')">${elem.nome}</button>`;
         return prevVal + $elemento;
     },initialValue =''); 
     
@@ -83,12 +94,13 @@ function defineActionsListen() {
     })
 
     socket.on("render_choice", (choices) => {
-        console.log('render_choice=>')
-        console.log(choices)
+        //console.log('render_choice=>')
+        //console.log(choices)
         render_choice(choices)
     })
 }
 
-function sendChoice(data) {
-    socket.emit('new_choice', { choice: data })
+function sendChoice(choice,nome) {
+    socket.emit('new_choice', { choice: choice })
+    render_choice_send(nome);
 }

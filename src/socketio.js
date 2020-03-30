@@ -1,4 +1,4 @@
-const bot = require('./bots/todas');
+const bot = require('./bots/');
 
 module.exports = server => {
   const io = require('socket.io')(server);
