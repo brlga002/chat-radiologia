@@ -25,7 +25,7 @@ module.exports.messageAutomatica = async () => {
     console.log('messageAutomatica para:' + socketID.id)
 
     await envio(`Ola, que bom que você veio!`, 10);       
-    await envio('Seja bem vindo(a), me chamo <b>Bora (Bot da Radiologia)</b> estou sendo treinado para fazer o atendimento do CRTR 19ª Região 24h por dia, todo dia aprendo algo novo mas ainda melhorar com o tempo &#128522;');
+    await envio('Seja bem vindo(a), me chamo <b>Bora (Bot da Radiologia)</b> estou sendo treinado para fazer o atendimento do CRTR 19ª Região 24h por dia, todo dia aprendo algo novo mas ainda vou melhorar com o tempo &#128522;');
     this.menuInicial();
  }
 
