@@ -11,11 +11,12 @@ const port = process.env.PORT || 5000;
 app.use(cors('*'));
 app.use(express.json());
 
-app.get('/', async(req, res) => {
+app.use('/', express.static(path.resolve(__dirname, '..','client')));
+
+app.get('/port', async(req, res) => {
     res.send({port})
 });
 
-app.use('/chat', express.static(path.resolve(__dirname, '..','client')));
 
 server.listen(port);
 console.log('Server Socket io in port: ' + port);

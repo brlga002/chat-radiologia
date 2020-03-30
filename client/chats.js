@@ -1,5 +1,3 @@
-
-
 let areaMessages, inputUsuario;
 
 $(function () {
@@ -9,7 +7,7 @@ $(function () {
     //var urlServe = 'http://localhost:5000'; 
     var urlServe = 'https://chat-crtr19.herokuapp.com';
 
-    axios.get(urlServe).then((response) => {
+    axios.get(urlServe + '/port').then((response) => {
         port = response.data.port;
     })
 
