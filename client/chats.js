@@ -1,52 +1,77 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable camelcase */
+/* eslint-disable spaced-comment */
+/* eslint-disable no-use-before-define */
+/* eslint-disable prefer-template */
+/* eslint-disable vars-on-top */
+/* eslint-disable no-var */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
+/* eslint-disable one-var */
+/* eslint-disable spaced-comment */
+
 let areaMessages, inputUsuario;
 
 $(function () {
-    areaMessages = $("#ul-msg");
-    inputUsuario = $("#inputUsuario");
+  areaMessages = $('#ul-msg');
+  inputUsuario = $('#inputUsuario');
 
-    //var urlServe = 'http://localhost:5000'; 
-    
-    var urlServe = 'https://chat-crtr19.herokuapp.com';
+  var urlServe = 'http://localhost:5000';
+  //var urlServe = 'https://chat-crtr19.herokuapp.com';
 
-    axios.get(urlServe + '/port').then((response) => {
-        port = response.data.port;
-    })
+  socket = io.connect(urlServe, { query: { user_id: 'Anonimus' } });
 
-    socket = io.connect(urlServe, {
-        query: { user_id: 'gabriel' }           
-    });
-    defineActionsListen()
-    socket.emit('welcome', { username: 'gabriel_lima', email: 'gabriel@gmail.com' });
-    
-    socket.on('connect', () => {
-        //localStorage.setItem('socketID', socket.id)
-        console.log(socket.id);
-    });
-
-    
-});
-
-$("#inputUsuario").on("keypress", function (e) {
-    if (e.keyCode == 13) {
-        teste();
-        return false;
+  socket.on('new_message', (data) => {
+    async function delayRenderMessage() {
+      for (const item of data.message) {
+        await sleep('850');
+        if (item.type === 'message') {
+          render_mensage_receive(item);
+        } else {
+          render_choice(item);
+        }
+      }
     }
+    delayRenderMessage();
+  });
+
+  socket.on('render_choice', (choices) => {
+    render_choice(choices);
+  });
+
+  socket.emit('welcome');
+
+  socket.on('connect', () => {
+    //localStorage.setItem('socketID', socket.id)
+    //console.log(socket.id);
+  });
 });
 
+$('#inputUsuario').on('keypress', function (e) {
+  if (e.keyCode === 13) {
+    sendMessageInputUser();
+    return false;
+  }
+});
 
 function scrollAltomatic() {
-    areaMessages.animate({ scrollTop: areaMessages[0].scrollHeight }, 50);
+  areaMessages.animate({ scrollTop: areaMessages[0].scrollHeight }, 50);
 }
 
-function teste() {
-    render_mensage_send(inputUsuario.val());
-    //render_mensage_receive(inputUsuario.val());
-    socket.emit('new_message', { message: inputUsuario.val() })
-    inputUsuario.val('');
+function sendMessageInputUser() {
+  render_mensage_send(inputUsuario.val());
+  socket.emit('new_message', { message: inputUsuario.val() });
+  inputUsuario.val('');
+}
+
+function solicitaBot(choice, nome) {
+  socket.emit('usuario_solicita_bot', { choice });
+  render_choice_send(nome);
 }
 
 function render_mensage_send(message) {
-    areaMessages.append(`
+  areaMessages.append(`
         <li class="msg-item">
             <div class="d-flex flex-row-reverse card-msg">
                 <div class="d-flex flex-row-reverse card-msg-receive">                       
@@ -55,22 +80,26 @@ function render_mensage_send(message) {
                 </div> 
             </div>
         </li>`);
-    scrollAltomatic();
+  scrollAltomatic();
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function render_mensage_receive(data) {
-    areaMessages.append(`
+  areaMessages.append(`
     <li class="msg-item">
         <div class="d-inline-flex card-msg">
             <img src="img/robo.png" class="avatar rounded-circle" alt="avatar robot">
-            <p>${data.message}</p>
+            <p>${data.text}</p>
         </div>
     </li>`);
-    scrollAltomatic();
+  scrollAltomatic();
 }
 
 function render_choice_send(nome) {
-    areaMessages.append(`
+  areaMessages.append(`
     <li class="msg-item">
         <div class="container-choice d-flex flex-row-reverse card-msg">
             <p class="container-choice-item card-send-choice">${nome}</p>
@@ -80,35 +109,19 @@ function render_choice_send(nome) {
 }
 
 function render_choice(choices) {
-    console.log(choices);
-    var celcius = choices.data.choices.reduce( function(prevVal, elem) {
-        $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="sendChoice('${elem.choice}','${elem.nome}')">${elem.nome}</button>`;
-        return prevVal + $elemento;
-    },initialValue =''); 
-    
-    areaMessages.append(`
+  console.log('choices');
+  console.log(choices.bots);
+  var celcius = choices.bots.reduce(function (prevVal, elem) {
+    $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="solicitaBot('${elem.choice}','${elem.nome}')">${elem.nome}</button>`;
+    return prevVal + $elemento;
+  }, (initialValue = ''));
+
+  areaMessages.append(`
         <li class="msg-item">
             <div class="container-choice card-msg">
                 ${celcius}
                 <div class="clearfix"></div>
             </div>
         </li>`);
-    scrollAltomatic();
-}
-
-function defineActionsListen() {
-    socket.on("new_message", (data) => {
-        render_mensage_receive(data)
-    })
-
-    socket.on("render_choice", (choices) => {
-        //console.log('render_choice=>')
-        //console.log(choices)
-        render_choice(choices)
-    })
-}
-
-function sendChoice(choice,nome) {
-    socket.emit('new_choice', { choice: choice })
-    render_choice_send(nome);
+  scrollAltomatic();
 }

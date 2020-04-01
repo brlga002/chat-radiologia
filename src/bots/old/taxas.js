@@ -1,9 +1,10 @@
 const delay = require('delay');
 const monName = new Array ("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
 const now = new Date;
+
 const calculaProporcional = (nMesesRestantes,valorAnuidade) => nMesesRestantes * (valorAnuidade / 12);        
 const formaraMoeda = (valor) =>  Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL'}).format(valor);
-//const formaraMoeda = (valor) =>  valor.toLocaleString('pt-BR', { minimumFractionDigits: 2});
+
 const anuidadeTecnico = 342.15;
 const anuidadeTecnologo = 427.38;
 const taxaInscricao = 94.55;
