@@ -17,8 +17,8 @@ $(function () {
   areaMessages = $('#ul-msg');
   inputUsuario = $('#inputUsuario');
 
-  var urlServe = 'http://localhost:5000';
-  //var urlServe = 'https://chat-crtr19.herokuapp.com';
+  //var urlServe = 'http://localhost:5000';
+  var urlServe = 'https://chat-crtr19.herokuapp.com';
 
   socket = io.connect(urlServe, { query: { user_id: 'Anonimus' } });
 
