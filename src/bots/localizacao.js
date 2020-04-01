@@ -1,9 +1,6 @@
 const menu = require('./menu/menus');
 
 const localizacao = [
-  { type: 'message', text: 'Inscrição, Boa escolha' },
-  { type: 'bot', bots: menu.inicial() },
-
   { type: 'message', text: 'Vou te explicar:' },
   { type: 'message', text: 'Nossa sede é na cidade de Manaus no Amazonas.' },
   {
@@ -33,6 +30,7 @@ const localizacao = [
     text:
       'Segue um mapa para te ajudar, <b>clique na imagem acima para abrir no Google Maps</b>:',
   },
+  { type: 'bot', bots: menu.fimChat() },
 ];
 
 module.exports = localizacao;

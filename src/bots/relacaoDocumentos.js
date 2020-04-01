@@ -57,7 +57,7 @@ const relacaoDocumentos = [
     type: 'message',
     text: `Essa é a ficha de inscrição nela tem a relação de documentos que te falei <a href="https://www.crtr19.gov.br/wp-content/uploads/2020/01/Ficha-de-Inscrição-P.-F.pdf" target="_blank" rel="noopener noreferrer">Ficha de Inscrição</a> esse e o modelo de <a href="https://www.crtr19.gov.br/wp-content/uploads/2017/12/MODELO-DE-DECLARAÇÃO-DE-RESIDENCIA..pdf" target="_blank" rel="noopener noreferrer">Declaração de Residência</a>`,
   },
-  { type: 'bot', bots: menu.inicial() },
+  { type: 'bot', bots: menu.fimChat() },
 ];
 
 module.exports = relacaoDocumentos;

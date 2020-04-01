@@ -14,7 +14,7 @@ const reativacao = [
     type: 'message',
     text: `Caso necessário podemos solicitar também Taxa para emissão de uma nova habilitação profissional e duas fotos.`,
   },
-  { type: 'bot', bots: menu.inicial() },
+  { type: 'bot', bots: menu.fimChat() },
 ];
 
 module.exports = reativacao;

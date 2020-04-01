@@ -33,7 +33,7 @@ const transferenciaRegistro = [
     type: 'message',
     text: `Cópia do Comprovante de pagamento da taxa de transferência.`,
   },
-  { type: 'bot', bots: menu.inicial() },
+  { type: 'bot', bots: menu.fimChat() },
 ];
 
 module.exports = transferenciaRegistro;

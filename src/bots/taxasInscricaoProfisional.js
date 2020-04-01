@@ -60,6 +60,6 @@ module.exports = function taxasInscricaoProfisional(tipo = 'tecnico') {
       text: `Anuidade Proporcional: ${formaraMoeda(anuidadeProporcional)}`,
     },
     { type: 'message', text: `Somando Tudo: ${formaraMoeda(soma)}` },
-    { type: 'bot', bots: menu.inicial() },
+    { type: 'bot', bots: menu.fimChat() },
   ];
 };
