@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 const server = require('http').Server(app);
 const path = require('path');
+
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -17,4 +19,4 @@ require('./services/socket_rules')(server);
 
 server.listen(port);
 
-console.log('Server Socket io in port: ' + port);
+console.log(`Server Socket io in port: ${port}`);
