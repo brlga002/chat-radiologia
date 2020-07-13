@@ -91,7 +91,7 @@ function render_mensage_receive(data) {
   areaMessages.append(`
     <li class="msg-item">
         <div class="d-inline-flex card-msg">
-            <img src="img/robo.png" class="avatar rounded-circle" alt="avatar robot">
+            <img src="img/robo.jpg" class="avatar rounded-circle" alt="avatar robot">
             <p>${data.text}</p>
         </div>
     </li>`);
