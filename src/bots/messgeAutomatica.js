@@ -8,7 +8,7 @@ const messageAutomatica = async (io,socket) => {
     }
 
     await envio(`Ola, ${socket.username}`);       
-    await envio('Seja bem vindo ao atendimento do CRTR 19ª Região');
+    await envio('Seja bem vindo ao atendimento do CRTR 5ª Região');
     await envio(`
         <button onclick="sendChoice('parcelamento')">parcelamento</button>
         <button onclick="sendChoice('inscricao')">inscricao</button>

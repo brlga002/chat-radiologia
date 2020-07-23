@@ -2,17 +2,17 @@ const menu = require('./menu/menus');
 
 const localizacao = [
   { type: 'message', text: 'Vou te explicar:' },
-  { type: 'message', text: 'Nossa sede é na cidade de Manaus no Amazonas.' },
+  { type: 'message', text: 'Nossa sede é na cidade de São Paulo/SP.' },
   {
     type: 'message',
     text:
-      'O endereço: Rua Michel Fokine, n.° 11, Quadra Q, Conjunto Shangrilar IV.',
+      'O endereço: Rua Herculano, nº 169 - São Paulo/SP.',
   },
-  { type: 'message', text: 'CEP: 69.054-739  Bairro: Parque 10 de Novembro.' },
+  { type: 'message', text: 'CEP: 01.257-030 - Bairro: Sumarézinho.' },
   {
     type: 'message',
     text:
-      'O ponto de referência: Na rua do <b>Supermercado Veneza</b> tem a <b>Casa da Carne Otávio</b>, que fica bem no início da nossa rua, desça até o fim dela, não tem erro.',
+      'O ponto de referência: Na rua do <b>Próximo ao metrô Vila Madalena</b> tem a <b>Caixa Econômica Federal</b>',
   },
   { type: 'message', text: 'Vou te mostrar uma foto:' },
   {
@@ -23,7 +23,7 @@ const localizacao = [
   {
     type: 'message',
     text:
-      '<a href="https://goo.gl/maps/ALjUPKB4zfPLGneP9" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>',
+      '<a href="https://g.page/crtrsp?share" target="_blank" rel="noopener noreferrer"><img src="img/mapa.png" class="img-thumbnail" alt="Conselho"></a>',
   },
   {
     type: 'message',

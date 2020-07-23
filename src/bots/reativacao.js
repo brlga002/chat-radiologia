@@ -4,7 +4,7 @@ const reativacao = [
   { type: 'message', text: `Para reativar e simples.` },
   {
     type: 'message',
-    text: `Basta preencher esta ficha: <a href="https://www.crtr19.gov.br/wp-content/uploads/2019/01/02-REATIVAÇÃO.pdf" target="_blank" rel="noopener noreferrer">Solicitação de Reativação de Inscrição</a> juntamente com um comprovante de endereço.`,
+    text: `Basta preencher esta ficha: <a href="http://www.crtrsp.org.br/documents/Pessoa_fisica/04_requerimento_pessoa_fisica.pdf" target="_blank" rel="noopener noreferrer">Solicitação de Reativação de Inscrição</a> juntamente com um comprovante de endereço.`,
   },
   {
     type: 'message',
@@ -12,7 +12,7 @@ const reativacao = [
   },
   {
     type: 'message',
-    text: `Caso necessário podemos solicitar também Taxa para emissão de uma nova habilitação profissional e duas fotos.`,
+    text: `Caso necessário, podemos solicitar também Taxa para emissão de uma nova habilitação profissional e 01 (uma) fotos 3/4.`,
   },
   { type: 'bot', bots: menu.fimChat() },
 ];
