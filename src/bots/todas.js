@@ -9,7 +9,7 @@ module.exports.messageAutomatica = async (io,socket) => {
     }
 
     await envio(`Ola, ${socket.username}`);       
-    await envio('Seja bem vindo ao atendimento do CRTR 19ª Região');
+    await envio('Seja bem vindo ao atendimento do CRTR 5ª Região');
     await envio(`
         <button onclick="sendChoice('parcelamento')">parcelamento</button>
         <button onclick="sendChoice('inscricao')">inscricao</button>
@@ -54,7 +54,7 @@ module.exports.inscricao = async (io,socket) => {
     await envio(`Etapa 2: Pagar 3 (três) taxas: Taxa de Inscição, Emissão de Carteira e Anuidade Proporcional do mês que estiver dando entrada`);
     await envio(`Etapa 3: Depois de aprovado em Reunião de Diretoria será expedida uma habilitação profissional`);
     await envio(`Mas atenção a partir do momento que der entrada no Conselho Todo ano terá que pagar anuidade`);
-    await envio(`<a href="https://www.crtr19.gov.br/inscricao-de-registro-p-f">Saiba mais Aqui</a>`);         
+    await envio(`<a href="https://crtrsp.org.br/inscricao-profissional/-p-f">Saiba mais Aqui</a>`);         
 }
 
 // = inscricao, messageAutomatica, parcelamento;
