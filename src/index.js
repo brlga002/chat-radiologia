@@ -21,9 +21,9 @@ app.use('/', express.static(path.resolve(__dirname, '..', 'client')));
 
 app.get('/port', async (req, res) => {
   //res.send({ port });
-  //const response = await request(app).get('/posts/1?_expand=menu');
+  //const response = await request(app).get('/bots/1?_expand=menu');
   const response = await request(app).get(
-    '/posts/?_expand=menu&botName=baixaRegistro'
+    '/bots/?_expand=menu&botName=baixaRegistro'
   );
   const messages = JSON.parse(response.text);
   res.send(messages[0]);

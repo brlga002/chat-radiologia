@@ -20,7 +20,7 @@ const rulesSocket = (server) => {
     // });
 
     socket.on('welcome', async () => {
-      const response = await request(server).get('/posts/1?_expand=menu');
+      const response = await request(server).get('/bots/1?_expand=menu');
       const messages = JSON.parse(response.text);
       enviarMensagem(messages);
     });
