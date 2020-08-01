@@ -4,14 +4,15 @@ const express = require('express');
 const jsonServer = require('json-server');
 const path = require('path');
 const cors = require('cors');
-const request = require('supertest');
 
 const app = express();
 const server = require('http').Server(app);
 
 const serveJson = jsonServer.create();
 const router = jsonServer.router(`./src/database/${process.env.NAME_DATABASE}`);
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({
+  readOnly: process.env.READ_ONLY_DATABASE,
+});
 const port = process.env.PORT || 5000;
 
 serveJson.use(middlewares);
@@ -32,5 +33,4 @@ require('./services/socket_rules')(server);
 server.listen(port);
 
 console.log(process.env.APP_NAME);
-
 console.log(`Server Socket io in port: ${port}`);
