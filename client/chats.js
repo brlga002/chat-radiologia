@@ -23,15 +23,13 @@ $(function () {
   socket = io.connect(urlServe, { query: { user_id: 'Anonimus' } });
 
   socket.on('new_message', (data) => {
+    console.log(data);
     async function delayRenderMessage() {
-      for (const item of data.message) {
+      for (const item of data.message.mensages) {
         await sleep('850');
-        if (item.type === 'message') {
-          render_mensage_receive(item);
-        } else {
-          render_choice(item);
-        }
+        render_mensage_receive(item);
       }
+      render_choice(data.message.menu.options);
     }
     delayRenderMessage();
   });
@@ -110,9 +108,9 @@ function render_choice_send(nome) {
 
 function render_choice(choices) {
   console.log('choices');
-  console.log(choices.bots);
-  var celcius = choices.bots.reduce(function (prevVal, elem) {
-    $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="solicitaBot('${elem.choice}','${elem.nome}')">${elem.nome}</button>`;
+  console.log([{ choices }]);
+  var celcius = choices.reduce(function (prevVal, elem) {
+    $elemento = `<button class="container-choice-item btn btn-outline-info" onclick="solicitaBot('${elem.nameBot}','${elem.textOption}')">${elem.textOption}</button>`;
     return prevVal + $elemento;
   }, (initialValue = ''));
 

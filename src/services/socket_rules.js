@@ -1,4 +1,4 @@
-const bot = require('../bots');
+const request = require('supertest');
 
 const rulesSocket = (server) => {
   // eslint-disable-next-line global-require
@@ -12,9 +12,9 @@ const rulesSocket = (server) => {
     };
 
     socket.on('welcome', async () => {
-      const conteudoBot = await bot.bemVindo();
-      console.log(conteudoBot);
-      enviarMensagem(conteudoBot);
+      const response = await request(server).get('/bots/1?_expand=menu');
+      const messages = JSON.parse(response.text);
+      enviarMensagem(messages);
     });
 
     socket.on('new_message', async (data) => {
@@ -22,12 +22,11 @@ const rulesSocket = (server) => {
     });
 
     socket.on('usuario_solicita_bot', async (data) => {
-      try {
-        const conteudoBot = await bot[data.choice]();
-        enviarMensagem(conteudoBot);
-      } catch (error) {
-        console.log(`Não encontrado bot nome = ${data.choice}`);
-      }
+      const response = await request(server).get(
+        `/bots/?_expand=menu&botName=${data.choice}`
+      );
+      const messages = JSON.parse(response.text);
+      enviarMensagem(messages[0]);
     });
 
     socket.on('disconnect', () => {
