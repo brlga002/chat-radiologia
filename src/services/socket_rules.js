@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const request = require('supertest');
 
 const rulesSocket = (server) => {
@@ -30,7 +31,7 @@ const rulesSocket = (server) => {
     });
 
     socket.on('disconnect', () => {
-      //console.log("user-disconnect")
+      console.log(`user-disconnect ${socket.id}`);
     });
   });
 };

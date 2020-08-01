@@ -28,6 +28,11 @@ body {
   background-color: #ffc107;
   border-color: #ffc107;
 }
+
+.btn-outline-info:focus {
+  box-shadow: 0 0 0 0.2rem #ffc107;
+}
+
 .container-chat {
   width: 100%;
   margin-top: 0.5vh;
