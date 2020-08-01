@@ -1,3 +1,5 @@
+require('dotenv').config({ path: (process.env.NODE_ENV = '.env') });
+
 const express = require('express');
 const jsonServer = require('json-server');
 const path = require('path');
@@ -8,7 +10,7 @@ const app = express();
 const server = require('http').Server(app);
 
 const serveJson = jsonServer.create();
-const router = jsonServer.router('db.json');
+const router = jsonServer.router(`./src/database/${process.env.NAME_DATABASE}`);
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 5000;
 
@@ -20,13 +22,7 @@ app.use(express.json());
 app.use('/', express.static(path.resolve(__dirname, '..', 'client')));
 
 app.get('/port', async (req, res) => {
-  //res.send({ port });
-  //const response = await request(app).get('/bots/1?_expand=menu');
-  const response = await request(app).get(
-    '/bots/?_expand=menu&botName=baixaRegistro'
-  );
-  const messages = JSON.parse(response.text);
-  res.send(messages[0]);
+  res.send({ port });
 });
 
 app.use(serveJson);
@@ -34,5 +30,7 @@ app.use(serveJson);
 require('./services/socket_rules')(server);
 
 server.listen(port);
+
+console.log(process.env.APP_NAME);
 
 console.log(`Server Socket io in port: ${port}`);
