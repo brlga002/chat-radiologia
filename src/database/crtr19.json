@@ -1,0 +1,301 @@
+{
+  "bots": [
+    {
+      "botName": "bemVindo",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Seja bem vindo(a)"
+        },
+        {
+          "type": "message",
+          "text": "Eu sou o bot do Conselho <b>BOT-CRTR19</b>"
+        },
+        {
+          "type": "message",
+          "text": "Posso te ajudar com:"
+        }
+      ],
+      "menuId": 1,
+      "id": 1
+    },
+    {
+      "botName": "inscricaoProfisional",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Inscrição, Boa escolha"
+        },
+        {
+          "type": "message",
+          "text": "O processo de inscrição ocorre em 3 Etapas:"
+        },
+        {
+          "type": "message",
+          "text": "Etapa 1: O requerente reuni a documentação necessária e protocola a mesma no consellho juntamente com a taxa de inscrição"
+        },
+        {
+          "type": "message",
+          "text": "A documentação em questão são copias autenticadas, porem caso você apresente copia simples juntamente com os originais, o CRTR autentica sem custos"
+        },
+        {
+          "type": "message",
+          "text": "Etapa 2: A documentação apresentada é analisada em Reunião de Diretoria. Apos a analize você é informado do Resultado, mediante a aprovação é gerado <b>Anuidade Proporcional de 2020 e Taxa de Emissão de habilitação</b>"
+        },
+        {
+          "type": "message",
+          "text": "Etapa 3: Após o pagamento da Anuidade Proporcional de 2020 e Taxa de Emissão de habilitação é feita a habilitação profissional, e uma data é definida para ela ser entregue"
+        },
+        {
+          "type": "message",
+          "text": "A Relação de Documentos:"
+        },
+        {
+          "type": "message",
+          "text": "(01) RG – Cédula de Identidade (CNH não serve como substituta para tal documento)."
+        },
+        {
+          "type": "message",
+          "text": "(02) CPF – Cadastro de Pessoa Física."
+        },
+        {
+          "type": "message",
+          "text": "(03) Título de Eleitor."
+        },
+        {
+          "type": "message",
+          "text": "(04) Certificado de Reservista (somente para homens)."
+        },
+        {
+          "type": "message",
+          "text": "(05) Certidão de nascimento ou casamento."
+        },
+        {
+          "type": "message",
+          "text": "(06) 3 (Três) Fotos Coloridas 3×4 (recentes e idênticas)."
+        },
+        {
+          "type": "message",
+          "text": "(07) Comprovante de Residência (telefone, loja, banco) com CEP no nome do inscrito ou de seus pais ou cônjuge, caso contrário o mesmo deverá fazer Declaração de Residência no Modelo CRTR para justificar o nome apresentado no comprovante."
+        },
+        {
+          "type": "message",
+          "text": "(08) Certificado de conclusão do Ensino Médio (2º Grau) (Somente para categoria de Técnico em Radiologia)"
+        },
+        {
+          "type": "message",
+          "text": "(09) Histórico do Ensino Médio (2º Grau) (Somente para categoria de Técnico em Radiologia)"
+        },
+        {
+          "type": "message",
+          "text": "(10) Diploma do Respectivo Curso em Radiologia (autorizado pelo CEE)"
+        },
+        {
+          "type": "message",
+          "text": "(11)  Histórico do Respectivo Curso de Radiologia (autorizado pelo CEE)."
+        },
+        {
+          "type": "message",
+          "text": "(12) Declaração de Conclusão de  Estágio  (Carga Horária mínima: 400h desde 11/11/2011. Emitido pela Instituição de Ensino estando assinada pelo Preceptor e o Diretor da Instituição.)"
+        },
+        {
+          "type": "message",
+          "text": "Para formados a partir de 23/10/2014, também faz-se necessário item 13 e 14."
+        },
+        {
+          "type": "message",
+          "text": "(13) Relatório assinado pelo preceptor (Relatório Instrumental)."
+        },
+        {
+          "type": "message",
+          "text": "(14) Termo de Convênio entre as instituições, cedente e concedente, nos termos da Lei n.° 11.788/2008."
+        },
+        {
+          "type": "message",
+          "text": "Essa é a ficha de inscrição nela tem a relação de documentos que te falei <a href='https://www.crtr19.gov.br/wp-content/uploads/2020/01/Ficha-de-Inscrição-P.-F.pdf' target='_blank' rel='noopener noreferrer'>Ficha de Inscrição</a> esse e o modelo de <a href='https://www.crtr19.gov.br/wp-content/uploads/2017/12/MODELO-DE-DECLARAÇÃO-DE-RESIDENCIA.pdf' target='_blank' rel='noopener noreferrer'>Declaração de Residência</a>"
+        }
+      ],
+      "menuId": 1,
+      "id": 2
+    },
+    {
+      "botName": "baixaRegistro",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Vou te explicar sobre a baixa"
+        },
+        {
+          "type": "message",
+          "text": "O requerente entrega a Solicitação de Cancelamento de Inscrição Profissional preenchida juntamente com a Cédula de Identidade Profissional."
+        },
+        {
+          "type": "message",
+          "text": "Se o requerimento for protocolizado até a data do vencimento da anuidade do ano em curso, a mesma não será devida. Após essa data, será cobrada a a proporcionalidade da anuidade."
+        },
+        {
+          "type": "message",
+          "text": "Essa é a ficha para solicitação de baixa: <a href='https://www.crtr19.gov.br/wp-content/uploads/2019/07/FICHA-03-VERS%C3%83O-01-SOLICITA%C3%87%C3%83O-DE-CANCELAMENTO-DE-REGISTRO-PROFISSIONAL.pdf' target='_blank' rel='noopener noreferrer'>Solicitação de Cancelamento de Inscrição Profissional</a>"
+        }
+      ],
+      "menuId": 1,
+      "id": 3
+    },
+    {
+      "botName": "reativacao",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Para reativar e simples."
+        },
+        {
+          "type": "message",
+          "text": "Basta preencher esta ficha: <a href='https://www.crtr19.gov.br/wp-content/uploads/2019/01/02-REATIVAÇÃO.pdf' target='_blank' rel='noopener noreferrer'>Solicitação de Reativação de Inscrição</a> juntamente com um comprovante de endereço."
+        },
+        {
+          "type": "message",
+          "text": "Pagar a taxa de reativação e anuidade Proporcional."
+        },
+        {
+          "type": "message",
+          "text": "Caso necessário podemos solicitar também Taxa para emissão de uma nova habilitação profissional e duas fotos."
+        }
+      ],
+      "menuId": 1,
+      "id": 4
+    },
+    {
+      "botName": "transferenciaRegistro",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Bem, nós somos o CRTR 19ª Região Amazonas e Roraima, os profissionais inscritos conosco podem trabalhar na nossa jurisdição."
+        },
+        {
+          "type": "message",
+          "text": "Caso um profissional queira trabalhar em outros Etados ele pode:"
+        },
+        {
+          "type": "message",
+          "text": "As atividades que se desenvolvam até 90 (noventa) dias por ano, em cada região serão consideras de natureza eventual, e por conseguinte, não sujeitarão o profissional à inscrição secundária. O profissional enquadrado na situação prevista no parágrafo anterior, deverá comunicar ao CRTR da jurisdição, se a permanência for mais de 30 (trinta) dias, devendo o conselho Regional, emitir uma Certidão de Autorização, com o prazo de validade enquanto durar o trabalho."
+        },
+        {
+          "type": "message",
+          "text": "Solicitar Transferência de Regional ou Fazer uma Inscrição Secundária"
+        },
+        {
+          "type": "message",
+          "text": "Essa e nossa ficha de <a href='https://www.crtr19.gov.br/wp-content/uploads/2020/01/FICHA-02-VERS%C3%83O-01-SOLICITA%C3%87%C3%83O-DE-TRANSFER%C3%8ANCIA.pdf' target='_blank' rel='noopener noreferrer'>Solicitação de Transferência de Inscrição Profissional</a>"
+        },
+        {
+          "type": "message",
+          "text": "Devolução da Cédula de Identidade Profissional."
+        },
+        {
+          "type": "message",
+          "text": "Cópia do comprovante de residência da jurisdição de destino."
+        },
+        {
+          "type": "message",
+          "text": "Cópia do Comprovante de pagamento da taxa de transferência."
+        }
+      ],
+      "menuId": 1,
+      "id": 5
+    },
+    {
+      "botName": "localizacao",
+      "mensages": [
+        {
+          "type": "message",
+          "text": "Vou te explicar:"
+        },
+        {
+          "type": "message",
+          "text": "Nossa sede é na cidade de Manaus no Amazonas."
+        },
+        {
+          "type": "message",
+          "text": "O endereço: Rua Michel Fokine, n.° 11, Quadra Q, Conjunto Shangrilar IV."
+        },
+        {
+          "type": "message",
+          "text": "CEP: 69.054-739  Bairro: Parque 10 de Novembro."
+        },
+        {
+          "type": "message",
+          "text": "O ponto de referência: Na rua do <b>Supermercado Veneza</b> tem a <b>Casa da Carne Otávio</b>, que fica bem no início da nossa rua, desça até o fim dela, não tem erro."
+        },
+        {
+          "type": "message",
+          "text": "Vou te mostrar uma foto:"
+        },
+        {
+          "type": "message",
+          "text": "<img src='img/pontoReferencia.png' class='img-thumbnail' alt='Casa de carne Otavio'>"
+        },
+        {
+          "type": "message",
+          "text": "<a href='https://goo.gl/maps/ALjUPKB4zfPLGneP9' target='_blank' rel='noopener noreferrer'><img src='img/mapa.png' class='img-thumbnail' alt='Conselho'></a>"
+        },
+        {
+          "type": "message",
+          "text": "Segue um mapa para te ajudar, <b>clique na imagem acima para abrir no Google Maps</b>:"
+        }
+      ],
+      "menuId": 1,
+      "id": 6
+    },
+    {
+      "botName": "relacaoDocumentos",
+      "mensages": [],
+      "menuId": 2,
+      "id": 7
+    }
+  ],
+  "menus": [
+    {
+      "title": "Menu Inicial",
+      "options": [
+        {
+          "textOption": "Inscrição",
+          "nameBot": "inscricaoProfisional"
+        },
+        {
+          "textOption": "Baixa",
+          "nameBot": "baixaRegistro"
+        },
+        {
+          "textOption": "Reativação",
+          "nameBot": "reativacao"
+        },
+        {
+          "textOption": "Transferência",
+          "nameBot": "transferenciaRegistro"
+        },
+        {
+          "textOption": "Localização",
+          "nameBot": "localizacao"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "IncricaoOptions",
+      "options": [
+        {
+          "textOption": "Relação de Documentos",
+          "nameBot": "relacaoDocumentos"
+        },
+        {
+          "textOption": "Relação de Documentos",
+          "nameBot": "relacaoDocumentos"
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "CRTR19"
+  }
+}
