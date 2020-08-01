@@ -15,6 +15,7 @@
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "delay": "^4.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "json-server": "^0.16.1",
     "socket.io": "^2.2.0"
