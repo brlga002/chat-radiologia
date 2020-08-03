@@ -6,7 +6,7 @@ const inscricaoProfisional = [
   {
     type: 'message',
     text:
-      'Etapa 1: O requerente reuni a documentação necessária e protocola a mesma no consellho juntamente com a taxa de inscrição',
+      'Etapa 1: O requerente reuni a documentação necessária e protocola a mesma no conselho juntamente com a taxa de inscrição',
   },
   {
     type: 'message',
@@ -16,7 +16,7 @@ const inscricaoProfisional = [
   {
     type: 'message',
     text:
-      'Etapa 2: A documentação apresentada é analisada em Reunião de Diretoria. Apos a analize você é informado do Resultado, mediante a aprovação é gerado <b>Anuidade Proporcional de 2020 e Taxa de Emissão de habilitação</b>',
+      'Etapa 2: A documentação apresentada é analisada em Reunião de Diretoria. Apos a analise você é informado do Resultado, mediante a aprovação é gerado <b>Anuidade Proporcional de 2020 e Taxa de Emissão de habilitação</b>',
   },
   {
     type: 'message',

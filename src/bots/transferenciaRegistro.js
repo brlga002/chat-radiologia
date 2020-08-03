@@ -7,7 +7,7 @@ const transferenciaRegistro = [
   },
   {
     type: 'message',
-    text: `Caso um profissional queira trabalhar em outros Etados ele pode:`,
+    text: `Caso um profissional queira trabalhar em outros Estados ele pode:`,
   },
   {
     type: 'message',
