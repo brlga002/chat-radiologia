@@ -9,7 +9,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">    
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-primary navbar-dark justify-content-center">
@@ -33,28 +34,65 @@
             <div class="row">
                 <div class="container-chat">
                     <ul id="ul-msg">
+                        <li class="msg-item">
+                            <div class="d-inline-flex card-msg">
+                                <img src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                    rounded-circle" alt="avatar robot">
+                                <p>Oi, tudo bem!</p>
+                            </div>
+                        </li>
+
+                        <li class="msg-item">
+                            <div class="d-inline-flex card-msg">
+                                <img src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                    rounded-circle" alt="avatar robot">
+                                <p>Oi, tudo bem!</p>
+                            </div>
+                        </li>
+
+                        <li class="msg-item">
+                            <div class="d-inline-flex card-msg">
+                                <img
+                                    src="http://localhost/chat-server-socketIo/public/img/robo.png" class="avatar
+                                    rounded-circle" alt="avatar robot">
+                                <p>Fui treinado para responder sobre isso:</p>
+                            </div>
+                        </li>
+
+                        <li class="msg-item">
+                            <div class="container-choice card-msg">
+                                <button class="container-choice-item btn btn-outline-info" onclick="scrollAltomatic()">Inscrição</button>
+                                <button class="container-choice-item btn btn-outline-info">Baixa de Registro</button>
+                                <button class="container-choice-item btn btn-outline-info">Reativação</button>
+                                <button class="container-choice-item btn btn-outline-info">Transferência</button>
+                                <button class="container-choice-item btn btn-outline-info">Localização</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+
+                        <li class="msg-item">
+                            <div class="d-inline-flex card-msg">
+                                <p>Fui treinado :</p>
+                                <img src="img/robo.png" class="avatar rounded-circle" alt="avatar
+                                    robot">
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
                 <div id="footer">
-                    <!--div class="input-group">
+                    <div class="input-group">
                         <input type="text" class="form-control"
                             id="inputUsuario" placeholder="Dígite">
                         <div class="input-group-append">
                             <button class="btn btn-success" type="submit"
                                 onclick="teste()">Enviar</button>
-                        </div-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="display: none;">
-            <img src="img/robo.png">
-            <img src="img/mapa.png">
-            <img src="img/casadacarne.png">
-        </div>               
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="chats.js?v=1"></script>
+
+        <script src="chats.js"></script>
     </body>
 </html>
