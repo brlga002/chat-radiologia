@@ -2,7 +2,9 @@
 
 ## Descrição
 
-O chat-radiologia é Bot, Resumidamente, é uma ferramenta automatizada que executa uma série de funções pré-programadas. Normalmente, está associada a inteligência artificial e busca interagir simulando a forma de pensar humana.
+O chat-radiologia é Bot, Resumidamente, é uma ferramenta automatizada que executa uma série de funções pré-programadas. Normalmente, está associada a inteligência artificial e busca interagir simulando a forma de pensar humanao.
+
+fabio
 
 ## Instalação
 
