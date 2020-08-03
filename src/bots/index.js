@@ -42,8 +42,8 @@ module.exports.taxasInscricaoProfisionalTecnologo = () => {
 module.exports.bemVindo = () => {
   return [
     { type: 'message', text: `Seja bem vindo(a)` },
-    { type: 'message', text: `Eu sou o bot do Conselho <b>BOT-CRTR19</b>` },
-    { type: 'message', text: `Posso te ajudar com:` },
+    { type: 'message', text: `Eu sou o bot do Conselho <b>BOT-CRTR 5ª Região</b>` },
+    { type: 'message', text: `Como posso te ajudar?` },
     { type: 'bot', bots: menu.inicial() },
   ];
 };
